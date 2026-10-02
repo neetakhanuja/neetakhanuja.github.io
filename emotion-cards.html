@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reflecting on emotions with AI · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html">research</a><a href="design.html" aria-current="page">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb"><a href="design.html">design</a> · 2025</p>
+  <div style="height:20px"></div>
+  <h1>reflecting on emotions with AI</h1>
+  <div style="height:40px"></div>
+  <p>A reflection tool that pairs hand-drawn emotion cards with AI-generated guidance. A person chooses three cards, writes about what is going on, and receives a short response that names what they may be feeling, reframes it and suggests a small next step.</p>
+  <p>It began as a design inquiry: can tangible, visual forms help people connect with a feeling in ways that words alone do not? It turned into a second question: can AI respond to a feeling with something closer to wisdom than information?</p>
+  <p class="meta">June to August 2025, Portugal · built in Google Apps Script, Google Sheets and the GPT API · phase one of the <a href="https://doi.org/10.1145/3800645.3812832">DIS 2026 pictorial</a>, with Valentina Nisi, Yogesh Kumar Meena and Jodi Forlizzi</p>
+</section>
+
+<div class="gap-s"></div>
+
+<figure class="fig" style="max-width:860px">
+  <img src="img/emotion-cards/cards-wall.jpg" alt="The ten printed emotion cards laid out in two rows, with a hand holding the self-love card, front and back." loading="lazy" style="width:100%">
+  <figcaption class="cap-c">the ten printed cards, each front drawn by hand</figcaption>
+</figure>
+
+<div class="gap"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>ten pairs of feelings</h3>
+      <p>Ten cards, each holding two related feelings rather than strict opposites, make twenty emotional states. Each pair shares one hand-drawn illustration in black line, without colour, so the drawing does not steer how it is read. At 70 × 100 mm, a card is large enough to hold and small enough to move around.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/emotion-cards/fronts.jpg" alt="The ten card fronts: black-and-white drawings, each labelled with two emotions, such as self-love and emotional guardedness, isolation and solitude, free falling and reaching out." loading="lazy" style="width:100%;max-width:960px;margin-inline:auto"><figcaption class="cap-c">the ten card fronts, each pairing two emotions</figcaption></figure>
+  </article>
+
+  <article class="stop flip" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>one card, front and back</h3>
+      <p>The front is a drawing. The back names both emotions with a few lines on each.</p>
+      <p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“Isolation: feeling distant, even in a room full of people.”</p>
+      <p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“Solitude: being alone in a way that feels <span class="blue">spacious or still.</span>”</p>
+    </div>
+    <figure class="art"><img src="img/emotion-cards/isolation.jpg" alt="Card five: the front shows a figure hugging their knees; the back describes isolation and solitude." loading="lazy"></figure>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>three cards, one reflection</h3>
+      <p>A person picks three cards that feel close to their day, without explaining why. Choosing and arranging them is already part of the reflection. The three cards set the question they are asked; they write a few lines in response, and the tool answers with short guidance. Early trials with friends shaped the card design and the flow.</p>
+    </div>
+    <figure class="art"><img src="img/emotion-cards/phase1.jpg" alt="Drawings of a hand holding three emotion cards, and a woman reading a card while holding her phone." loading="lazy" style="width:100%;max-width:440px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>under the hood</h3>
+      <p>The prototype was built in Google Apps Script, with Google Sheets as the data layer and OpenAI’s GPT API as the language model. Keeping the cards in a spreadsheet made them easy to edit between tests.</p>
+    </div>
+    <div class="art" style="margin-top:44px">
+      <figure style="margin:0 auto 56px;max-width:720px"><img src="img/emotion-cards/app-flow.jpg" alt="Four phone screens of the Well-Being Reflection web app: entering three card codes, writing a reflection, the emotions it detected, and the guidance with suggested actions." loading="lazy" style="width:100%"><figcaption class="cap-c">the web app on a phone: card codes, reflection, detected emotions, guidance</figcaption></figure>
+      <ol class="flow">
+        <li><b>cards</b>A sheet holds each card’s two-digit code, its two emotions and their descriptions.</li>
+        <li><b>prompt</b>The person enters the codes of their three cards. The script looks them up and asks one question that names the cards.</li>
+        <li><b>reflection</b>The person writes a few lines in response.</li>
+        <li><b>model</b>The script sends the cards and the reflection to the GPT API, first to name the emotions, then to write guidance in one response style.</li>
+        <li><b>guidance</b>The page shows the emotions it heard, a short reflection and a few small actions, which the person can save.</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">v.</span>
+      <h3>can AI be wise?</h3>
+      <p>Naming a feeling is not the same as offering insight. I tested six response styles, each a different prompt to the model, on the same reflections.</p>
+    </div>
+    <div class="art" style="margin-top:48px">
+      <ul class="styles">
+        <li><b>naming</b><q>You are standing between letting go and holding on, feeling the quiet weight of both.</q><span>Precise and validating, but stayed on the surface.</span></li>
+        <li><b>layering</b><q>You seem to be feeling quiet guilt, restless hope, and a longing to regain balance.</q><span>Nuanced at times, mostly formulaic.</span></li>
+        <li><b>minimal</b><q>I see a feeling of tired hope and quiet confusion.</q><span>Intimate and direct, but too brief to carry depth.</span></li>
+        <li><b>toolkit</b><q>Feeling uncertain does not mean you are lost… You might try writing what feels unfinished today.</q><span>Helpful, but read like self-help.</span></li>
+        <li><b>story</b><q>A bird carried two stones, one of regret and one of hope. When it let one fall, it finally began to rise.</q><span>Sometimes resonant, sometimes literal.</span></li>
+        <li><b>reframing</b><q>It sounds like you care deeply and want to meet every expectation.</q><span>Warm and supportive, still patterned. Used at the conference.</span></li>
+      </ul>
+      <p style="max-width:640px;margin:44px auto 0;text-align:center">The model could organise emotion into coherent language and mirror tone, but not offer the lived understanding that gives reflection its depth.</p>
+    </div>
+  </article>
+
+  <article class="stop flip" data-stop>
+    <div class="txt">
+      <span class="num">vi.</span>
+      <h3>a response in three parts</h3>
+      <p>The final response had three parts: feeling heard, a reframing, and two or three small actions. This example answers my own reflection after stepping away from the conference to spend time with two people who ground me.</p>
+    </div>
+    <figure class="art"><img src="img/emotion-cards/response.jpg" alt="A handwritten-style response in three columns: feeling heard, reframing and action points." loading="lazy"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vii.</span>
+      <h3>ten visitors at DIS 2025</h3>
+      <p>I shared the prototype at DIS 2025, in the zine exhibit and a demo session. Visitors could explore the physical cards, read short instructions, scan a QR code to the web app and try the whole flow on their own. Ten researchers, designers and students tried it and talked with me about it.</p>
+    </div>
+    <div class="art" style="margin-top:40px;max-width:900px;margin-inline:auto">
+      <div class="field-grid">
+        <figure><img src="img/emotion-cards/dis-hand-cards.jpg" alt="A visitor’s hand resting on the cards laid out on a white table." loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover"><figcaption class="cap-l">choosing from the spread</figcaption></figure>
+        <figure><img src="img/emotion-cards/dis-phone.jpg" alt="Over a visitor’s shoulder: hands holding a phone with the reflection page open, beside a long table of emotion cards and QR instruction cards." loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover"><figcaption class="cap-l">writing the reflection</figcaption></figure>
+        <figure><img src="img/emotion-cards/dis-floor.jpg" alt="A visitor sitting on the carpet holding one card, with other cards laid out in front." loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover"><figcaption class="cap-l">sorting cards on the floor</figcaption></figure>
+        <figure><img src="img/emotion-cards/dis-holding.jpg" alt="A visitor holding a card and its description at a table of printed cards." loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover"><figcaption class="cap-l">reading front and back</figcaption></figure>
+      </div>
+    </div>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">viii.</span>
+      <h3>what visitors told me</h3>
+      <p>They wanted the response to build on the cards they had chosen, not only on what they typed. Going from picking up the cards to typing in the app broke the flow; people were unsure what to write. Several saw it less as a solo self-help app and more as a social practice, like tarot, where one person reads for another. And they doubted generated guidance; they suggested a curated library of human-written reflections and texts, philosophical or spiritual, that the AI draws from.</p>
+    </div>
+    <div class="art">
+      <p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“I spent a lot of time to choose the cards, so I want the reflection session to have <span class="blue">some relation to the cards.</span>”</p>
+      <div style="height:24px"></div>
+      <p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“The really beautiful thing about tarot is that people do tarot to each other… <span class="blue">it feels really good to have your friend see you.</span>”</p>
+      <div style="height:24px"></div>
+      <p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“We don’t need AI for emotions… when you try to generate content, <span class="blue">it does not give you anything which can help.</span>”</p>
+    </div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ix.</span>
+      <h3>what changed next</h3>
+      <p>Choosing an emotion asks a person to know what they feel first, and that was often the hardest part. A visitor suggested questions in place of descriptions, so I changed the card. The front now names the two emotions beside the drawing, and the back asks five yes-or-no questions, such as “Have you been holding a lot without others noticing?” Answering them starts the reflection on the card, before the app, and makes it easier to tell which emotion fits.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/emotion-cards/card-questions.jpg" alt="The revised self-love card: the front with the drawing and both emotion names, the back with five yes-or-no questions." loading="lazy" style="width:100%;max-width:640px;margin-inline:auto"><figcaption class="cap-c">the revised card, front and back</figcaption></figure>
+    <div class="txt" style="margin-top:40px">
+      <p>The bigger shift was in the role of AI. Instead of expecting it to generate wisdom, I began using it to find and adapt wisdom that already exists. The question moved from “can AI be wise?” to “can AI help us find the wisdom already present in our traditions?” That question became the starting point for the <a href="phase2.html">self-reflection tool</a> in part two of my PhD, which anchors reflection in themes of aging and draws guidance from Indian philosophical texts.</p>
+    </div>
+  </article>
+</div>
+
+<div class="gap"></div>
+
+<section class="col center">
+  <h2>open questions</h2>
+  <div style="height:28px"></div>
+  <p>This project left me with questions about what role AI can play in how people understand their own feelings.</p>
+  <ul class="asks" style="text-align:left;max-width:600px;margin:24px auto 0">
+    <li>Can AI help people put a feeling into words, without telling them what they feel?</li>
+    <li>When does a response feel like being heard, and when does it feel generic?</li>
+    <li>Should guidance come from the model, or from human-authored sources the model selects and adapts?</li>
+    <li>Can reflection with AI be shared, read by one person for another, as tarot is?</li>
+    <li>Can AI connect people who feel the same mix of things, so that reflection becomes shared?</li>
+  </ul>
+</section>
+
+<footer class="foot"><a href="design.html">design</a><a href="memex.html">next: a storytelling app for MEMEX</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>

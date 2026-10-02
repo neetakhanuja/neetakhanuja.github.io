@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Braille touch pad · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html">research</a><a href="design.html" aria-current="page">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb"><a href="design.html">design</a> · [year]</p>
+  <div style="height:20px"></div>
+  <h1>braille touch pad</h1>
+  <div style="height:40px"></div>
+  <p>Touch screens are flat. Braille is not. This self-initiated project designed a tangible layer that sits between a finger and a phone screen, so blind users can type in braille the way they read it.</p>
+  <p class="meta">Algo Design Studio · <a href="http://www.nid.edu/insight2018/programme.php">INSIGHT 2018</a>, National Institute of Design</p>
+</section>
+
+<div class="gap-s"></div>
+
+<figure class="fig" style="max-width:640px">
+  <img src="img/braille/explorations.jpg" alt="Seven photos of the explorations: a blank screen, the six-key grid, rubber and silicone layers over a phone." loading="lazy" style="width:100%">
+  <figcaption class="cap-c">From a flat screen to a surface you can feel. Top row: the six-key grid on a bare touch screen. Middle: the first layer, a rubber plate with printed braille. Bottom: the silicone layer with raised dots, cast from a mould.</figcaption>
+</figure>
+
+<div class="gap-s"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>six keys</h3>
+      <p>The screen is divided into a grid of six, arranged like the six dots of a braille cell. Pressing the right keys types a letter.</p>
+      <p>I built several keypads on Android to find the usability problems: different key sizes, a space bar and a clear button, and a QWERTY keyboard for comparison.</p>
+    </div>
+    <figure class="art"><img src="img/braille/keypads.png" alt="Five Android keypad iterations: braille dot grids with a space bar and clear button, and a QWERTY keyboard." loading="lazy" style="width:100%;max-width:600px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop flip" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>a layer you can feel</h3>
+      <p>The first layer was a rubber plate with printed braille over semiconductor foam, with thin aluminium wire so a touch still reaches the screen.</p>
+      <p>Then a mould made at the CEPT University fabrication lab, Ahmedabad, gave a silicone surface with raised braille.</p>
+    </div>
+    <div class="art">
+      <img src="img/braille/layers.png" alt="Diagram: rubber plate with printed braille on semiconductor foam, with thin aluminium wire." loading="lazy" style="width:100%">
+      <img src="img/braille/mould.jpg" alt="Hands making the silicone mould and cutting the raised braille surface." loading="lazy" style="width:100%;max-width:460px;margin:28px auto 0">
+    </div>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>testing at L.V. Prasad</h3>
+      <p>I ran an informal test with blind users at L.V. Prasad Eye Institute, Hyderabad. They asked for immediate audio feedback, time to finish a letter, enough space between keys and a way to delete one letter instead of the whole message. Pressing keys one after another felt easier than pressing them together.</p>
+    </div>
+    <figure class="art"><img src="img/braille/testing.jpg" alt="Four participants at L.V. Prasad Eye Institute trying the braille pad on phones." loading="lazy" style="width:100%"></figure>
+  </article>
+
+  <article class="stop flip" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>from typing to learning</h3>
+      <p>The tests pointed to a better use: learning braille. In a braille tutor game, a story plays as sound and pauses until the child presses the right letter on the pad.</p>
+    </div>
+    <figure class="art"><img src="img/braille/tutor.png" alt="Three screens of the Braille Tutor: level 1 with braille letters a to f, the title screen, and the letters a to f." loading="lazy" style="width:100%"></figure>
+  </article>
+</div>
+
+<footer class="foot"><a href="design.html">design</a><a href="walled-city.html">next: window to walled city</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>

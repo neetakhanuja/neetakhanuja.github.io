@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html" aria-current="page">research</a><a href="design.html">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="rs">
+  <svg id="flow" aria-hidden="true"><path/><path/><path/><circle r="4"/><circle r="4"/><circle r="4"/></svg>
+  <div class="intro" id="origin">
+    <h1>How can self-perceptions of aging be understood and operationalized in HCI research and design?</h1>
+    <p>Self-perceptions of aging are how older adults understand and evaluate their own aging. They are associated with health and well-being, and they can change. Yet they have received limited attention as a basis for design in HCI, where technology for older adults has mostly focused on decline, safety and monitoring.</p>
+    <p>My PhD studies these perceptions with older adults in urban India, and then designs for them, in three parts.</p>
+  </div>
+  <nav class="three" aria-label="Three parts of the PhD">
+    <a href="phase1.html" data-end><b>one</b><span>Understanding <span class="nw">self-perceptions</span> of aging in context</span><em>probes and interviews in four living contexts</em></a>
+    <a href="phase2.html" data-end><b>two</b><span>Operationalizing them through research through design</span><em>a tool for spoken reflection</em></a>
+    <a href="phase3.html" data-end><b>three</b><span>Materializing them for design</span><em>cards for designers and older adults</em></a>
+  </nav>
+</section>
+
+<section class="approach-wrap">
+  <h2>research by approach</h2>
+  <p class="lede">I study how technology can support wellbeing, with a focus on aging and culture. I work through empirical studies, cultural probes and research through design.</p>
+  <div class="approach">
+    <div>
+      <h3>empirical studies</h3>
+      <ul>
+        <li><span>Two papers on aging in urban India</span><em>in review at CHI 2027</em></li>
+      </ul>
+    </div>
+    <div>
+      <h3>cultural probes</h3>
+      <ul>
+        <li><a href="phase1.html">the aging reflection probe</a><em>older adults in India · DIS 2025</em></li>
+        <li><a href="wellbeing.html">students’ mental wellbeing</a><em>an anonymous probe · IASDR 2023</em></li>
+      </ul>
+    </div>
+    <div>
+      <h3>research through design</h3>
+      <ul>
+        <li><a href="phase2.html">a self-reflection tool for aging</a><em>DIS 2026</em></li>
+        <li><a href="phase3.html">SPA design materials</a><em>CHI 2026 Extended Abstracts</em></li>
+        <li><a href="cyber-physical.html">walls that move</a><em>speculative design workshops · CHI 2026, Best Paper</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot"><a href="index.html">home</a><a href="phase1.html">one: in context</a></footer>
+
+<script>
+(function(){
+  var svg=document.getElementById('flow'); if(!svg) return;
+  var paths=svg.querySelectorAll('path'), dots=svg.querySelectorAll('circle'), box=svg.parentNode;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var drawn=false;
+  function build(){
+    if(getComputedStyle(svg).display==='none') return;
+    var b=box.getBoundingClientRect(), o=document.getElementById('origin').getBoundingClientRect();
+    var mr=box.querySelectorAll('[data-end]')[1].getBoundingClientRect();
+    var ox=o.right-b.left+24, oy=mr.top-b.top+mr.height*0.5;
+    box.querySelectorAll('[data-end]').forEach(function(e,i){
+      var r=e.getBoundingClientRect(), ex=r.left-b.left-22, ey=r.top-b.top+r.height*0.5;
+      // out from the text, turn, run straight, turn again into the part
+      var dx=ex-ox, dy=ey-oy, bx=ox+dx*0.42, rr=0, sg=dy<0?-1:1, d;
+      if(Math.abs(dy)<4){ d='M'+ox+' '+oy+' L'+ex+' '+ey; }
+      else {
+        d='M'+ox+' '+oy+' L'+(bx-rr)+' '+oy+
+          ' Q'+bx+' '+oy+' '+bx+' '+(oy+sg*rr)+
+          ' L'+bx+' '+(ey-sg*rr)+
+          ' Q'+bx+' '+ey+' '+(bx+rr)+' '+ey+
+          ' L'+ex+' '+ey;
+      }
+      var p=paths[i]; p.setAttribute('d',d);
+      dots[i].setAttribute('cx',ex); dots[i].setAttribute('cy',ey);
+      var L=p.getTotalLength();
+      p.style.strokeDasharray=L;
+      if(!drawn && !reduce){ p.style.transition='none'; p.style.strokeDashoffset=L; dots[i].style.opacity=0; }
+      else { p.style.strokeDashoffset=0; dots[i].style.opacity=1; }
+    });
+    if(!drawn && !reduce){
+      drawn=true;
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        paths.forEach(function(p,i){ var dl=(0.2+i*0.35); p.style.transition='stroke-dashoffset 2s ease-in-out '+dl+'s'; p.style.strokeDashoffset=0;
+          dots[i].style.transition='opacity .5s ease '+(dl+1.8)+'s'; dots[i].style.opacity=1; });
+      }); });
+    }
+    drawn=true;
+  }
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(build,120);});
+  if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(build); } else { build(); }
+})();
+</script>
+</body>
+</html>

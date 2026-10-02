@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operationalizing SPA · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html" aria-current="page">research</a><a href="design.html">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb parts"><a href="research.html">research</a> &nbsp;/&nbsp; <a href="phase1.html">one: in context</a> · <a href="phase2.html" aria-current="page">two: operationalizing</a> · <a href="phase3.html">three: materializing</a></p>
+  <div style="height:20px"></div>
+  <h1>operationalizing <span class="nw">self-perceptions</span> of aging through research through design</h1>
+  <div style="height:40px"></div>
+  <p>Self-perceptions of aging shape how older adults feel in later life, yet they are mostly studied through questionnaires and clinical formats. Few tools help older adults reflect on them in everyday life, and fewer still in India.</p>
+  <p>I asked what a technology for self-reflection on aging could look like, and how it might support self-perceptions of aging and emotional wellbeing. I approached it through research through design: I designed a SPA-based self-reflection tool with older adults and experts, and let each version answer part of the question.</p>
+</section>
+
+<div class="gap"></div>
+
+<section class="tool-intro">
+  <div class="ti-txt">
+    <h2>the SPA-based self-reflection tool</h2>
+    <p>A culturally grounded reflection tool for older adults in India. It combines SPA reflection cards and prompts with non-diagnostic guidance drawn from a curated set of familiar texts.</p>
+<p class="meta"><a href="https://doi.org/10.1145/3800645.3812832">DIS 2026 pictorial</a>, with Valentina Nisi, Yogesh Kumar Meena and Jodi Forlizzi</p>
+  </div>
+  <figure class="ti-art"><img class="box" src="img/research-2/hero.jpg" alt="Illustration: an older man holds a phone showing the card selection screen, with the eight SPA reflection cards fanned behind it and the domain names in English and Gujarati arcing around." loading="lazy"></figure>
+</section>
+
+<div class="gap-s"></div>
+<section class="col">
+  <p>An older adult picks a card for one aspect of aging and reflects on its prompt in their own words. AI interprets the reflection to find its themes and emotional cues, then retrieves guidance from a knowledge base curated with experts in psychology and spirituality: passages from familiar texts such as the Bhagavad Gita and the Upanishads, and small reflective activities.</p>
+  <p>The AI acts as a curator of material that people have written and reviewed. It does not write emotional guidance of its own.</p>
+    </section>
+
+<div class="gap"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>the design process</h3>
+      <p>The work moved through three phases between June and December 2025: emotion-based self-reflection in Portugal, co-designing SPA-based self-reflection with older adults in India, and refining the tool with domain experts in India.</p>
+    </div>
+    <div class="art" style="margin-top:40px"><img class="box" src="img/research-2/process.jpg" alt="Illustrated design process in three phases: emotion-based self-reflection in Portugal, co-designing SPA-based self-reflection in India, and refining the SPA tool with domain experts in India." loading="lazy"></div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>co-design at home</h3>
+      <p>I ran pilot co-design sessions with three older adults in their homes in India. They combined exploration, co-creation and refinement to shape the SPA reflection cards and prompts, and gathered feedback on the AI-curated guidance and the tool’s usability. One participant joined a three-hour session that shaped the narratives for the cards and prompts; two others each joined 1.5-hour sessions to refine the prompts, the app and the guidance.</p>
+    </div>
+    <div class="art" style="margin-top:40px"><img class="box" src="img/research-2/codesign.jpg" alt="Three illustrated co-design sessions with participants’ quotes: co-creating narratives for the cards, refining the prompts, and discussing AI-curated responses on the phone." loading="lazy"></div>
+    <ul class="findings">
+      <li><b>in the app</b>They preferred to see and choose the cards in the app. Printed cards were a supplement.</li>
+      <li><b>concrete words</b>Abstract or evaluative words, such as “necessity” or “social ties”, caused confusion. Concrete, present-tense wording worked.</li>
+      <li><b>everyday framing</b>They spoke about aging and self-value through metaphors, daily duties, relationships and contribution, not by naming emotions.</li>
+      <li><b>speaking</b>Typing and long writing were hard. They preferred short, slow spoken answers.</li>
+      <li><b>audio and text</b>They wanted guidance as audio or text, with control over saving and sharing it.</li>
+      <li><b>scripture</b>They trusted guidance that was short, clear and grounded in scripture, especially the Bhagavad Gita, closer to satsang or a mantra than to advice.</li>
+    </ul>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>from narratives to cards</h3>
+      <p>I developed the reflection cards through a synthesis of participants’ narratives and the metaphors in them: relationships as a thread that tightens, loosens and shifts over time; life as a river or a tree, where change is growth; the heart as a garden, with feelings as flowers of different fragrances. I chose an abstract, non-figurative visual language to reduce interpretive constraint and support open-ended meaning-making, translating lived experience into structured, culturally grounded reflection prompts.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img class="box" src="img/research-2/narratives.jpg" alt="A table moving from participants’ narratives, to the metaphors drawn from them, to the card visual and prompt, for each of the eight domains." loading="lazy"><figcaption class="cap-c">participants’ narratives, their metaphors, and the card visuals and prompts</figcaption></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>eight reflection cards</h3>
+      <p>The resulting SPA reflection card set of eight cards comprises nine life-aspect domains that structure self-reflection in later life. Each card pairs an abstract visual form with a focused prompt, offering a stable, low-burden entry point for personal reflection across diverse life concerns.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img class="box" src="img/research-2/cards.jpg" alt="The eight SPA reflection cards with Gujarati titles: social, self-efficacy, age related transitions, life satisfaction, decision-making, self-value, age association and emotions." loading="lazy"></figure>
+    <ul class="findings questions cards-list">
+      <li><i class="cn">social</i><b>What do relationships mean for you?</b> Over time our relationships change. Some become stronger, and some weaken. What do you think?</li>
+      <li><i class="cn">self-efficacy</i>What we do for others and for ourselves is what shapes us. <b>What do you like to do for yourself? How do you feel about things you can or cannot do?</b></li>
+      <li><i class="cn">age related transitions</i>Change is inevitable in life. Have you ever had the experience of change and <b>how do you accept the changes that come with time?</b></li>
+      <li><i class="cn">life satisfaction</i>Contentment is important in life. At times we feel greater happiness, and at times we feel less content. <b>What do you do to increase contentment in your life?</b></li>
+      <li><i class="cn">decision-making</i>Every stage of life is a new beginning. Thoughtful planning is necessary for each new phase. <b>Do you reflect on your needs and make appropriate decisions for your life?</b></li>
+      <li><i class="cn">self-value</i>When you do work that you enjoy, it also creates something good for others. Think about actions that add value not only for yourself but for everyone. <b>What actions can you take right now that will benefit both you and others?</b></li>
+      <li><i class="cn">age association</i>Growing older does not mean life comes to a halt. There are always ways to stay active and connected. <b>How do you remain positive as you age?</b></li>
+      <li><i class="cn">emotions</i>Sometimes the heart feels strong, and sometimes it feels fragile. By listening to our emotions, we understand ourselves better. <b>Do you trust your inner self? And which emotion feels the clearest to you today?</b></li>
+    </ul>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">v.</span>
+      <h3>review with experts</h3>
+      <p>To assess the tool’s viability, safety, accessibility and cultural resonance, three kinds of domain experts engaged with a working prototype: a cultural scholar from a traditional scripture institute, a trustee of a local old-age home, and researchers and practitioners at a regional HCI conference.</p>
+    </div>
+    <div class="art" style="margin-top:40px"><img class="box" src="img/research-2/experts.jpg" alt="Three illustrated expert reviews with quotes: a cultural scholar from a traditional scripture institute, a trustee of a local old-age home, and a hands-on workshop with HCI researchers and practitioners." loading="lazy"></div>
+    <ul class="findings">
+      <li><b>familiar texts</b>Widely known sources, the Bhagavad Gita, selected Upanishads and popular bhajans, were essential for recognition and trust.</li>
+      <li><b>compassion</b>Readings should support acceptance, effort and hope, and never frame suffering as punishment or fate.</li>
+      <li><b>short explanations</b>Brief pravachan-style explanations and simple stories, tied to everyday situations such as illness or family conflict.</li>
+      <li><b>openness</b>No sectarian claims; each reading offered as one possible interpretation.</li>
+      <li><b>shared use</b>Many residents had no smartphone or stable internet, so the tool had to work on shared devices and with printed takeaways.</li>
+      <li><b>onboarding</b>Concerns about installation, data and safety called for slow, face-to-face, clearly non-clinical introductions.</li>
+    </ul>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vi.</span>
+      <h3>three sessions with a psychologist</h3>
+      <p>Three sessions with a psychologist shaped the emotional guardrails, language and personalisation logic of the toolkit, ensuring safety and low-risk interaction: validating the concept and its limits, integrating the other experts and shaping the flow, and co-creating the emotions and activities list.</p>
+    </div>
+    <div class="art" style="margin-top:40px"><img class="box" src="img/research-2/psychologist.jpg" alt="Three illustrated sessions with the psychologist, with her quotes: concept validation and framing, synthesis after the expert sessions, and co-creating the emotion list, context variables and activities." loading="lazy"></div>
+    <ul class="findings">
+      <li><b>wellbeing, not therapy</b>Without diagnosis or supervision, the tool is gentle wellbeing support, not counselling.</li>
+      <li><b>a contained session</b>A short arc of reflection, one or two light activities and a closing, so each use ends grounded.</li>
+      <li><b>intensity</b>Prompts and activities tagged by emotional intensity, with heavier reflections followed by a cooling-off step.</li>
+      <li><b>two takeaways</b>A reflective takeaway, such as a story or a quote, and an optional action, such as a mudra, a chant or a small practice.</li>
+      <li><b>graded emotions</b>Graded words for joy, fear, anger and sadness, so the tool can tell “slightly down” from “devastated”.</li>
+      <li><b>everyday context</b>Social circle, living situation, routines and sources of strength personalise the suggestions.</li>
+    </ul>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vii.</span>
+      <h3>final design: one session</h3>
+      <p>An older adult picks the card that matches what they want to reflect on and answers its prompt, by speaking or typing. The tool identifies the themes and feelings in what they said, and they rate how strongly they feel them. It then retrieves guidance from the expert-curated knowledge base, and the session ends with a short takeaway, so the reflection can settle.</p>
+    </div>
+    <figure class="art" style="margin-top:48px">
+      <img class="box" src="img/research-2/flow.jpg" alt="Illustrated final flow: selecting a SPA card, answering a short prompt by speaking or typing, rating feelings and intensity, reading guidance from the expert-curated knowledge base, and ending with a takeaway." loading="lazy">
+    </figure>
+  </article>
+</div>
+
+<div class="gap"></div>
+
+<section class="col center">
+  <h2>what happens next</h2>
+  <div style="height:28px"></div>
+  <p>I then deployed the tool for six weeks with older adults across different living contexts in urban India, to see how reflection fits into their days. The paper is in preparation for DIS 2027. Part three takes the same materials to designers.</p>
+</section>
+
+<footer class="foot"><a href="phase1.html">previous: one, in context</a><a href="research.html">research</a><a href="phase3.html">next: three, materializing</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>

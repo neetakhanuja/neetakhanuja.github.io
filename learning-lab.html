@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Learning Lab · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html">research</a><a href="design.html" aria-current="page">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb"><a href="design.html">design</a> · 2015 to 2016</p>
+  <div style="height:20px"></div>
+  <h1>my learning lab</h1>
+  <div style="height:40px"></div>
+  <p>A self-assessment and preference exploration space that helps learners understand their own accessibility needs, set learning goals and reflect on their progress. It was part of the FLOE project at the Inclusive Design Research Centre, OCAD University, Toronto.</p>
+  <p class="meta">Inclusive Design Research Centre, OCAD University · volunteer designer · design team: Dana Ayotte, Sepideh Shahi, Neeta Khanuja · <a href="https://www.youtube.com/watch?v=adzy-sa2O_A">video</a> · <a href="https://fluidproject.atlassian.net/wiki/spaces/fluid/pages/11523946/Floe+Self-Assessment+Learning+Toolkit+Design">project wiki</a></p>
+</section>
+
+<div class="gap-s"></div>
+
+<figure class="fig" style="max-width:1000px">
+  <img src="img/learning-lab/dashboard.jpg" alt="The dashboard for a learner named Jamie: goal milestones along the top, a monthly calendar with reminders and preferences, and a journal panel." loading="lazy" style="width:100%">
+</figure>
+
+<div class="gap-s"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>learners and use cases</h3>
+      <p>We wrote personas and use cases for four kinds of people: beginners starting something new, learners improving a skill they already have, experienced users of the dashboard, and the parents, teachers and peers who support them, with the learner’s permission.</p>
+      <p class="meta"><a href="https://fluidproject.atlassian.net/wiki/display/fluid/Self+assessment+dashboard+use+cases">use cases</a></p>
+    </div>
+    <div class="art">
+      <ul class="gest">
+        <li>beginners</li><li>enhancers</li><li>experienced users</li><li>supporters</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>three connected spaces</h3>
+      <p>I helped define the dashboard’s features around one learner, Jamie. My goals holds goals and milestones, my journal holds notes and moods, and my files holds documents. Each can link to the others: a note to a milestone, a document to a goal.</p>
+      <p class="meta"><a href="https://fluidproject.atlassian.net/wiki/spaces/fluid/pages/11522111/Self+assessment+dashboard+features">dashboard features</a></p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/learning-lab/features.png" alt="Brainstorm of features around Jamie: my journal, my files and my goals, linked by uploads and notes." loading="lazy" style="width:100%;max-width:960px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>information architecture</h3>
+      <p>The home page shows progress, activity, the journal and preferences at a glance. Primary navigation leads to goals, journal and files, each with its own list and detail views.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/learning-lab/ia.png" alt="Information architecture: home components and primary navigation leading to goals, journal and files pages." loading="lazy" style="width:100%;max-width:960px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>a note that can become a goal</h3>
+      <p>In the wireframes, anything a learner writes starts as a note. The dashboard then asks whether to link it to a goal, a preference or the calendar, or to turn it into a goal of its own.</p>
+      <p class="meta"><a href="https://fluidproject.atlassian.net/wiki/display/fluid/(Floe)+Preference+Exploration+and+Self-Assessment?preview=/46203145/125468714/Design%20Discussion_myL3_Neeta.pdf">first design draft</a></p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/learning-lab/wireframes.jpg" alt="Three wireframes: writing a note, choosing what to link it to, and the list of preferences." loading="lazy" style="width:100%;max-width:1100px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">v.</span>
+      <h3>from interface to prototype</h3>
+      <p>I designed the interface in Adobe Illustrator and built an interactive prototype in Framer.js, so the team could try the flow from setting a goal to reflecting on it.</p>
+      <p class="meta"><a href="https://www.youtube.com/watch?v=adzy-sa2O_A&amp;t=49s">Framer.js prototype</a></p>
+    </div>
+    <div class="art"><p class="quote" style="font-size:clamp(20px,1.8vw,26px)">“Set a reminder and it will be displayed here, <span class="blue">like a notification.</span>”</p></div>
+  </article>
+</div>
+
+<footer class="foot"><a href="design.html">design</a><a href="ar-installations.html">next: AR and installations</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>

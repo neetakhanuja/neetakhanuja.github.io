@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MEMEX storytelling app · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html">research</a><a href="design.html" aria-current="page">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb"><a href="design.html">design</a> · 2020 to 2021</p>
+  <div style="height:20px"></div>
+  <h1>a storytelling app for MEMEX</h1>
+  <div style="height:40px"></div>
+  <p>MEMEX was a European research project on social inclusion through cultural heritage. In pilots in Barcelona, Paris and Lisbon, people from migrant and marginalised communities wrote stories about places that mattered to them. The stories were pinned to locations on a map and linked to a knowledge graph of heritage sites, people and events.</p>
+  <p>I designed the user experience and interface of the mobile app: the information architecture, the privacy model, the wireframes and the high-fidelity screens. The app had two sides. Storytellers write and place their stories; viewers find them on a map and read them.</p>
+  <p class="meta">UX and UI designer, Interactive Technologies Institute, Lisbon · with Hollie Bostock, Valentina Nisi and the MEMEX team at ITI · <a href="https://memexproject.eu/en/">memexproject.eu</a> · MEMEX was funded by the European Union’s Horizon 2020 programme under grant agreement No 870743</p>
+</section>
+
+<div class="gap-s"></div>
+
+<figure class="fig" style="max-width:1100px">
+  <img src="img/memex/ui-hero.jpg" alt="Three screens of the final design: an author’s saved stories with photos, the preview of a story about Parque Eduardo VII, and a map of stories near the reader with a story preview card." loading="lazy" style="width:100%">
+  <figcaption class="cap-c">the final interface: saved stories, a story, and stories near me</figcaption>
+</figure>
+
+<div class="gap"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>twenty-seven requirements, one structure</h3>
+      <p>The consortium agreed on 27 requirements in three groups: what storytellers need, what the app must do, and how the interaction should work. Each had a priority from one to three. I turned the list into an information architecture with six core areas: the story grid, story creation, story editing, the story view, preview and publishing.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/ia-requirements.jpg" alt="An information architecture diagram linking create profile, dashboard, story grid, story creation, story edit, story view, preview and publish, beside a colour-coded list of storyteller, app and interaction requirements with priorities." loading="lazy" style="width:100%;max-width:980px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>every block traced to a requirement</h3>
+      <p>For each screen, I laid out the content blocks and marked each block with the colours of the requirements it served. Developers could see why a block was there and what it had to support. A requirement with no colour on any screen showed a gap.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/screen-requirements.jpg" alt="Block layout of the story creation screen: navigation, search, user details, multimedia inputs, location, keywords, feedback settings, collaboration request, save as draft and publish, each block marked with coloured squares matching requirement codes." loading="lazy" style="width:100%;max-width:880px;margin-inline:auto"><figcaption class="cap-c">the story creation screen, mapped to its requirements</figcaption></figure>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>three versions</h3>
+      <p>With Hollie Bostock, I sorted the requirements into three releases across four parts of the app: the profile, story creation, story mapping and story viewing. Version 1 held the core: interests, multimedia stories, stories tied to a location, and browsing. Version 2 added collaboration between authors, safety settings, analytics, AR overlays and stories shown indoors. Version 3 added controlled feedback and stories that mix media with AR. We wireframed each version so the consortium could see what each release would contain.</p>
+    </div>
+    <figure class="art"><img src="img/memex/versions.jpg" alt="A table of features by version and by part of the app: create profile, story creation, story mapping and story viewing, for versions 1, 2 and 3." loading="lazy"><figcaption class="cap-l">features by version, June 2020</figcaption></figure>
+  </article>
+
+  <article class="stop flip" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>a dashboard for authors</h3>
+      <p>In the version 2 wireframes, an author’s dashboard showed the stories they had written, co-created and saved, invitations to write with others, places they had visited, and simple feedback numbers. Writing a story started with a title, a location, media and an option to add AR.</p>
+    </div>
+    <figure class="art"><img src="img/memex/v2.jpg" alt="Two version 2 wireframes: an author dashboard with counts of stories authored, co-created and saved, collaboration invites, visited locations and feedback analytics; and a write story screen with add AR, add location and upload." loading="lazy"><figcaption class="cap-l">version 2: the author dashboard and writing a story</figcaption></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">v.</span>
+      <h3>three levels of sharing</h3>
+      <p>Many storytellers were migrant women sharing personal memories, and some did not want to be identifiable. I designed privacy as a choice a person makes for each part of the app. A profile could be anonymous, limited or detailed. A story could be shared in part, on request, for a limited time or only at its location. Feedback could be open, limited to a group, or turned off.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/privacy.jpg" alt="Three diagrams titled privacy and digital togetherness, for profile, stories and feedback. Each splits into public, close community and sharing some identity characteristics, and lists the options available." loading="lazy" style="width:100%"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vi.</span>
+      <h3>forty-six screens</h3>
+      <p>The full architecture covered sign-up, photo upload, interests, the dashboard, story creation with media, and story viewing in a grid or on a map. I wrote an index of all 46 high-fidelity screens, with the actions on each, so the technical partners could estimate the work.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/ia-full.jpg" alt="The full information architecture of the app: splash screen, sign in, profile, dashboard with create and view sections, and their screens for media upload, preview, publish, story list, map view and story detail." loading="lazy" style="width:100%"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vii.</span>
+      <h3>the first full release</h3>
+      <p>The first high-fidelity screens followed Android conventions. A dashboard held the stories a person had saved and published. Stories could be browsed as a grid or on a map, and each story opened onto its text, media and location.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/hifi.jpg" alt="Four grey Android screens: a dashboard of saved stories, a map with story pins, a story detail page about a stone sculpture at the Lisbon fish market, and a write-a-story screen with media." loading="lazy" style="width:100%"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">viii.</span>
+      <h3>simpler, after the partners</h3>
+      <p>Meetings with the technical and social partners cut the second release down. We split users in two. Anyone could open the app as a viewer and browse anonymised stories, without an account. Only the pilot facilitators could log in to write stories. Comments and likes were removed, to protect storytellers from harmful feedback. The dashboard went, and the app opened straight onto the stories.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/mvp2.jpg" alt="Four screens of the second release: a login for facilitators with a language choice, a list of all stories, the same stories on a map, and a plain write-a-story screen with save and publish." loading="lazy" style="width:100%"><figcaption class="cap-c">the second release: login for facilitators, stories as a list and a map, and writing a story</figcaption></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ix.</span>
+      <h3>writing with suggestions</h3>
+      <p>Writers add photos, audio recordings or files through one upload button. The knowledge graph linked each story to people, places and heritage records. For storytellers, the graph became a source. With content suggestions turned on, a writer searches for the place and the app offers facts, images and other authors’ references to it. The writer chooses what to add: a fact appears in the story text, and chosen images join a carousel above it.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/creator.jpg" alt="Four screens: an upload popup offering camera, record audio and attach file; suggestion cards for Parque Eduardo VII with add to story buttons; a grid of suggested images with three selected; and the story with the added fact and an image carousel." loading="lazy" style="width:100%;max-width:1000px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">x.</span>
+      <h3>placing a story</h3>
+      <p>A writer places the story by moving the map under a fixed pin, or jumps to where they stand with the location button. Readers see the story on the same map and can ask for directions to it.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/place.jpg" alt="Three screens: an add location map with a pin and instructions, the pin set on Parque Eduardo VII with the writer’s position, and the published story on the map with a directions button." loading="lazy" style="width:100%;max-width:820px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">xi.</span>
+      <h3>keywords, preview, publish</h3>
+      <p>Before publishing, the writer adds keywords from a shared vocabulary, ticked from a list that narrows as they type. The keywords are what the knowledge graph uses to link stories. Publish stays inactive until at least one keyword is added. The preview shows the story as readers will see it, with numbered sources for any facts taken from the suggestions. After publishing, a message explains that the story’s connections take time to compute and that the app will send a notification when they are ready.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/publish.jpg" alt="Four screens: a keyword list narrowed to words starting with cultur, with cultural heritage ticked; four added keywords with the publish button active; a preview of the story with a photo carousel, text and a list of sources; and a thank-you message saying the story’s connections will be ready soon." loading="lazy" style="width:100%;max-width:1000px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">xii.</span>
+      <h3>stories that connect</h3>
+      <p>From a story’s map, the graph button shows what the story connects to: other stories and heritage sites, drawn as a small network. Tapping a node opens a summary with the keywords the two share. Scrolling up gives the same connections as lists: how many stories and sites, and cards for each.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/connect.jpg" alt="Three screens: a popup for a heritage site with its shared keywords, a popup for a connected story with a read more button, and a page counting three connected stories and two heritage sites with cards for each." loading="lazy" style="width:100%;max-width:820px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">xiii.</span>
+      <h3>browsing stories</h3>
+      <p>Two switches organise the app. Readers choose between all stories and stories near them. Authors choose between their saved drafts and their published stories, and a new story appears at the top once it is published. Each list can also be opened on the map, with the reader’s position marked. Tapping a pin shows the story’s photo and title, with directions to the place. The app runs in English, French, Portuguese and Spanish.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/memex/browse.jpg" alt="Four screens: all stories with large photos, stories near me, an author’s published stories in a photo grid with a new story at the top, and a map of stories near the reader with a story preview and a directions button." loading="lazy" style="width:100%;max-width:1000px;margin-inline:auto"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">xiv.</span>
+      <h3>a style guide for the build</h3>
+      <p>I wrote a UI style guide in Adobe XD for the developers. It set a teal colour scheme, a type scale in Segoe UI, a 4:3 ratio for landscape photos, and every state of the main components: buttons, the expandable search bar, the create story button, and the switches between saved and published, and between all stories and stories near me.</p>
+    </div>
+    <div class="art" style="margin-top:40px;max-width:900px;margin-inline:auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px"><div style="background:#38737A;color:#fff;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Primary</b><span>#38737A</span></div><div style="background:#81B9BF;color:#fff;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Primary variant</b><span>#81B9BF</span></div><div style="background:#B2EBF2;color:#10191A;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Secondary</b><span>#B2EBF2</span></div><div style="background:#E5FFFF;color:#10191A;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Secondary variant</b><span>#E5FFFF</span></div><div style="background:#EAEBEB;color:#10191A;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Complementary</b><span>#EAEBEB</span></div><div style="background:#FFFFFF;color:#10191A;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Background</b><span>#FFFFFF</span></div><div style="background:#E70A04;color:#fff;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">Notifications and errors</b><span>#E70A04</span></div><div style="background:#10191A;color:#fff;border:1px solid #d9d9d9;padding:14px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.3"><b style="font-weight:600">On secondary</b><span>#10191A</span></div></div>
+      <ul style="list-style:none;margin:36px 0 0;padding:0"><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:600;color:#10191A">H1</span><span class="meta" style="margin:0">Segoe UI · Semibold · 20px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:18px;font-weight:600;color:#10191A">H2</span><span class="meta" style="margin:0">Segoe UI · Semibold · 18px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;font-weight:600;color:#10191A">H3</span><span class="meta" style="margin:0">Segoe UI · Semibold · 16px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:12px;font-weight:600;color:#10191A">H4</span><span class="meta" style="margin:0">Segoe UI · Semibold · 12px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:400;color:#10191A">Subtitle 1</span><span class="meta" style="margin:0">Segoe UI · Regular · 14px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:11px;font-weight:400;color:#10191A">Subtitle 2</span><span class="meta" style="margin:0">Segoe UI · Regular · 11px</span></li><li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #e3e3e3;padding:10px 0"><span style="font-family:'Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:400;color:#10191A">Buttons</span><span class="meta" style="margin:0">Segoe UI · Regular · 20px</span></li></ul>
+      <p class="cap-c" style="margin-top:16px">the colour scheme and type scale, as specified in the style guide</p>
+    </div>
+  </article>
+</div>
+
+<footer class="foot"><a href="design.html">design</a><a href="wayfinding.html">next: wayfinding with dementia</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>
