@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Card Links and QR</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+  body { margin:0; background:#FFFFFF; color:#1A1A1A; font-family:"Trebuchet MS", system-ui, sans-serif; }
+  main { max-width:60rem; margin:0 auto; padding:1.5rem 1rem 3rem; }
+  h1 { font-size:1.5rem; margin:0 0 .5rem; }
+  .controls { display:flex; flex-wrap:wrap; gap:1rem; align-items:end; margin:1rem 0 1.5rem; }
+  label { display:block; font-size:.9rem; font-weight:bold; }
+  input { font:inherit; font-size:1rem; padding:.4rem .5rem; border:1px solid #1A1A1A; border-radius:6px; }
+  #site { width:min(28rem, 85vw); }
+  button { font:inherit; padding:.5rem 1rem; border:2px solid #1A1A1A; border-radius:8px; background:#1A1A1A; color:#FFFFFF; cursor:pointer; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(13rem, 1fr)); gap:1rem; }
+  .cell { border:1px solid #1A1A1A; border-radius:8px; padding:.75rem; text-align:center; break-inside:avoid; }
+  .cell svg { width:9rem; height:9rem; }
+  .name { font-weight:bold; margin:.25rem 0; }
+  .url { font-size:.7rem; word-break:break-all; color:#333333; }
+  @media print { .controls, .intro { display:none; } main { padding:0; } .cell { page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Card links and QR codes</h1>
+  <p class="intro">For the researcher only. Set the participant code, then print. Each QR code opens the same link the NFC tag holds.</p>
+  <div class="controls">
+    <div><label for="site">Site address</label><input id="site"></div>
+    <div><label for="pcode">Participant code</label><input id="pcode" value="TEST1" size="8"></div>
+    <div><label for="sets">Sets</label><input id="sets" value="A,B" size="6"></div>
+    <button type="button" id="go">Make codes</button>
+    <button type="button" onclick="window.print()">Print</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+<script>
+var CARDS = [
+  ["social", "Social"], ["self-efficacy", "Self-efficacy"], ["transitions", "Transitions"],
+  ["life-satisfaction", "Life satisfaction"], ["decision-making", "Decision-making"],
+  ["self-value", "Self-value"], ["age-association", "Age association"], ["emotions", "Emotions"]
+];
+document.getElementById("site").value = location.href.replace(/qr\.html.*$/, "");
+
+function make() {
+  var site = document.getElementById("site").value.trim();
+  if (site.slice(-1) !== "/") site += "/";
+  var p = document.getElementById("pcode").value.trim();
+  var sets = document.getElementById("sets").value.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
+  var grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  sets.forEach(function (s) {
+    CARDS.forEach(function (c) {
+      var url = site + "?p=" + encodeURIComponent(p) + "&c=" + c[0] + "&s=" + encodeURIComponent(s);
+      var qr = qrcode(0, "M");
+      qr.addData(url);
+      qr.make();
+      var cell = document.createElement("div");
+      cell.className = "cell";
+      cell.innerHTML = qr.createSvgTag(4, 8);
+      var name = document.createElement("div");
+      name.className = "name";
+      name.textContent = c[1] + " · Set " + s;
+      var link = document.createElement("div");
+      link.className = "url";
+      link.textContent = url;
+      cell.appendChild(name);
+      cell.appendChild(link);
+      grid.appendChild(cell);
+    });
+  });
+}
+document.getElementById("go").addEventListener("click", make);
+make();
+</script>
+</body>
+</html>

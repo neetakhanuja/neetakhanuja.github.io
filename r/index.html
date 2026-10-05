@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Reflection</title>
+<style>
+  :root { --ink:#1A1A1A; --paper:#FFFFFF; --stop:#9E0B0F; --band:#E6E6E6; --focus:#0B5FFF; }
+  html { font-size:100%; -webkit-text-size-adjust:100%; }
+  /* Lets iPhone's "Larger Text" setting scale the page. */
+  @supports (font: -apple-system-body) { html { font: -apple-system-body; } }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Trebuchet MS", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size:1.25rem; line-height:1.45;
+  }
+  .band { min-height:3.5rem; background:var(--band); border-bottom:2px solid var(--ink); }
+  main { max-width:34rem; margin:0 auto; padding:1.5rem 1rem 3rem; }
+  section[hidden] { display:none; }
+  h1 { font-size:1.75rem; line-height:1.25; margin:0 0 1rem; }
+  h1:focus { outline:none; }
+  p { margin:0 0 1.25rem; }
+  .label { font-size:1.25rem; margin:0 0 .25rem; }
+  .prompt { font-size:1.6rem; line-height:1.4; margin:0 0 2rem; }
+  button.main {
+    display:block; width:100%; min-height:4rem; margin:1.5rem 0 0;
+    font:inherit; font-size:1.4rem; font-weight:bold;
+    background:var(--ink); color:#FFFFFF; border:2px solid var(--ink); border-radius:14px;
+    padding:.75rem 1rem; cursor:pointer;
+  }
+  button.main.stop { background:var(--stop); border-color:var(--stop); min-height:5.5rem; font-size:1.75rem; }
+  button.main:disabled { opacity:.6; }
+  button:focus-visible { outline:4px solid var(--focus); outline-offset:3px; }
+  .listening { display:flex; align-items:center; gap:.75rem; }
+  .dot { flex:none; width:1.5rem; height:1.5rem; border-radius:50%; background:var(--stop);
+         animation:pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.35; transform:scale(.75); } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation:none; } }
+  .timer { font-size:2.75rem; font-weight:bold; font-variant-numeric:tabular-nums; margin:.5rem 0 1rem; }
+  .note { border-left:6px solid var(--ink); padding:.5rem 0 .5rem 1rem; }
+  .check { font-size:5rem; line-height:1; margin:1rem 0; }
+  ol { padding-left:1.5rem; margin:0 0 1.25rem; }
+  li { margin-bottom:.5rem; }
+  h2 { font-size:1.4rem; margin:1.5rem 0 .5rem; }
+</style>
+</head>
+<body>
+<div class="band" id="band" aria-hidden="true"></div>
+<main>
+
+  <!-- 1. Card screen -->
+  <section id="s-card" hidden>
+    <p class="label" id="card-label">Your card</p>
+    <h1 tabindex="-1" id="card-theme"></h1>
+    <p class="prompt" id="card-prompt"></p>
+    <button class="main" id="btn-start" type="button">Start speaking</button>
+  </section>
+
+  <!-- 2. Recording screen -->
+  <section id="s-rec" hidden>
+    <h1 tabindex="-1" class="listening"><span class="dot" aria-hidden="true"></span>Listening…</h1>
+    <p class="timer" id="timer" role="timer" aria-live="off">0:00</p>
+    <p class="note" id="long-note" hidden>You can keep going, or press Stop when you are done.</p>
+    <button class="main stop" id="btn-stop" type="button">Stop</button>
+  </section>
+
+  <!-- 3. Ready to send (Phase 1 stand-in for the listen-back screen) -->
+  <section id="s-ready" hidden>
+    <h1 tabindex="-1">Your reflection is recorded.</h1>
+    <p>Press Send to save it.</p>
+    <button class="main" id="btn-send" type="button">Send</button>
+  </section>
+
+  <!-- 4. Sending screen -->
+  <section id="s-sending" hidden>
+    <h1 tabindex="-1">Sending… please keep this page open.</h1>
+  </section>
+
+  <!-- 5. Saved screen -->
+  <section id="s-saved" hidden>
+    <p class="check" aria-hidden="true">✓</p>
+    <h1 tabindex="-1">Saved. Thank you.</h1>
+    <p>You can close this page.</p>
+  </section>
+
+  <!-- Error: upload failed -->
+  <section id="s-failed" hidden>
+    <h1 tabindex="-1">It didn't send. Your recording is still here.</h1>
+    <button class="main" id="btn-retry" type="button">Try again</button>
+  </section>
+
+  <!-- Error: microphone blocked -->
+  <section id="s-mic" hidden>
+    <h1 tabindex="-1">Your phone needs permission to use the microphone.</h1>
+    <h2>On an iPhone</h2>
+    <ol>
+      <li>Tap <strong>aA</strong> at the edge of the address bar.</li>
+      <li>Tap <strong>Website Settings</strong>.</li>
+      <li>Set <strong>Microphone</strong> to <strong>Allow</strong>.</li>
+    </ol>
+    <h2>On an Android phone</h2>
+    <ol>
+      <li>Tap the small symbol at the left of the address bar.</li>
+      <li>Tap <strong>Permissions</strong>.</li>
+      <li>Turn on <strong>Microphone</strong>.</li>
+    </ol>
+    <button class="main" id="btn-mic-retry" type="button">Try again</button>
+  </section>
+
+  <!-- Error: missing or wrong link -->
+  <section id="s-badlink" hidden>
+    <h1 tabindex="-1">Please tap your card again.</h1>
+  </section>
+
+  <!-- Error: browser cannot record -->
+  <section id="s-unsupported" hidden>
+    <h1 tabindex="-1">This page cannot record here.</h1>
+    <p>Please open it in Safari on an iPhone or in Chrome on an Android phone.</p>
+  </section>
+
+</main>
+
+<script>
+/* ====================== SETTINGS: EDIT THESE ====================== */
+
+// 1. Paste your Apps Script web app URL (it ends in /exec) between the quotes.
+var UPLOAD_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+// 2. Card content, keyed by card ID. Change text or colours here; the tags never change.
+var CARDS = {
+  "social":            { theme: "Social",            colour: "#F7DC80", prompt: "What is on your mind about your relationships today?" },
+  "self-efficacy":     { theme: "Self-efficacy",     colour: "#A1CEB7", prompt: "What do you think about what you can and cannot do?" },
+  "transitions":       { theme: "Transitions",       colour: "#89BFD4", prompt: "How do you embrace the changes that come into your life?" },
+  "life-satisfaction": { theme: "Life satisfaction", colour: "#A5AD6D", prompt: "What gives you satisfaction right now?" },
+  "decision-making":   { theme: "Decision-making",   colour: "#FDCA65", prompt: "Are you thinking about a decision?" },
+  "self-value":        { theme: "Self-value",        colour: "#E57E85", prompt: "Are you thinking of doing something for yourself and for others?" },
+  "age-association":   { theme: "Age association",   colour: "#C677B0", prompt: "What is on your mind about growing older?" },
+  "emotions":          { theme: "Emotions",          colour: "#F69668", prompt: "Which feeling do you feel most strongly within yourself?" }
+};
+
+/* ================== NO NEED TO EDIT BELOW THIS LINE ================== */
+
+var LONG_NOTE_SECONDS = 600; // 10 minutes
+
+var params = new URLSearchParams(location.search);
+var P = (params.get("p") || "").trim();
+var C = (params.get("c") || "").trim().toLowerCase();
+var S = (params.get("s") || "").trim().toUpperCase();
+var card = CARDS[C];
+
+var stream = null, recorder = null, chunks = [], audioBlob = null, audioB64 = null;
+var startTime = 0, durationSec = 0, timerId = null, wakeLock = null;
+
+function $(id) { return document.getElementById(id); }
+
+function show(id) {
+  var sections = document.querySelectorAll("main > section");
+  for (var i = 0; i < sections.length; i++) sections[i].hidden = (sections[i].id !== id);
+  var h = $(id).querySelector("h1");
+  if (h) h.focus();
+  window.scrollTo(0, 0);
+}
+
+function post(payload) {
+  return fetch(UPLOAD_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" }, // avoids the CORS preflight Apps Script cannot answer
+    body: JSON.stringify(payload),
+    redirect: "follow"
+  }).then(function (r) { return r.json(); });
+}
+
+function logEvent(eventName) {
+  if (UPLOAD_URL.indexOf("PASTE_") === 0) return;
+  post({ event: eventName, p: P, c: C, s: S, clientTime: new Date().toISOString() })
+    .catch(function () { /* a missed log row should never interrupt the participant */ });
+}
+
+function pickMime() {
+  var types = ["audio/webm;codecs=opus", "audio/mp4", "audio/webm", "audio/ogg;codecs=opus"];
+  for (var i = 0; i < types.length; i++) {
+    if (MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(types[i])) return types[i];
+  }
+  return ""; // let the browser choose
+}
+
+function formatTime(sec) {
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return m + ":" + (s < 10 ? "0" : "") + s;
+}
+
+function keepScreenAwake() {
+  if ("wakeLock" in navigator) {
+    navigator.wakeLock.request("screen").then(function (l) { wakeLock = l; }).catch(function () {});
+  }
+}
+function releaseScreen() {
+  if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
+}
+
+function startRecording() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+    show("s-unsupported");
+    return;
+  }
+  $("btn-start").disabled = true;
+  navigator.mediaDevices.getUserMedia({
+    audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+  }).then(function (s) {
+    stream = s;
+    var mime = pickMime();
+    var opts = { audioBitsPerSecond: 48000 };
+    if (mime) opts.mimeType = mime;
+    try { recorder = new MediaRecorder(stream, opts); }
+    catch (e) { recorder = new MediaRecorder(stream); }
+
+    chunks = [];
+    recorder.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+    recorder.onstop = onStopped;
+    recorder.start(1000);
+
+    startTime = Date.now();
+    $("timer").textContent = "0:00";
+    $("long-note").hidden = true;
+    timerId = setInterval(function () {
+      var sec = Math.floor((Date.now() - startTime) / 1000);
+      $("timer").textContent = formatTime(sec);
+      if (sec >= LONG_NOTE_SECONDS) $("long-note").hidden = false;
+    }, 500);
+
+    keepScreenAwake();
+    $("btn-stop").disabled = false;
+    show("s-rec");
+    logEvent("started");
+  }).catch(function () {
+    $("btn-start").disabled = false;
+    show("s-mic");
+  });
+}
+
+function stopRecording() {
+  $("btn-stop").disabled = true;
+  durationSec = Math.round((Date.now() - startTime) / 1000);
+  clearInterval(timerId);
+  if (recorder && recorder.state !== "inactive") recorder.stop();
+}
+
+function onStopped() {
+  if (stream) stream.getTracks().forEach(function (t) { t.stop(); });
+  releaseScreen();
+  var type = (recorder && recorder.mimeType) || (chunks[0] && chunks[0].type) || "audio/webm";
+  audioBlob = new Blob(chunks, { type: type });
+  audioB64 = null;
+  $("btn-send").disabled = false;
+  show("s-ready");
+}
+
+function toBase64(blob) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+    reader.onload = function () { resolve(String(reader.result).split(",")[1]); };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+function send() {
+  $("btn-send").disabled = true;
+  $("btn-retry").disabled = true;
+  show("s-sending");
+  var ready = audioB64 ? Promise.resolve(audioB64) : toBase64(audioBlob);
+  ready.then(function (b64) {
+    audioB64 = b64; // kept in the page so "Try again" does not need to re-read
+    return post({
+      event: "sent", p: P, c: C, s: S,
+      clientTime: new Date().toISOString(),
+      duration: durationSec,
+      mime: audioBlob.type.split(";")[0],
+      input: "voice",
+      takes: 1,
+      audio: b64
+    });
+  }).then(function (res) {
+    if (res && res.ok) show("s-saved");
+    else throw new Error((res && res.error) || "No confirmation");
+  }).catch(function () {
+    $("btn-retry").disabled = false;
+    show("s-failed");
+  });
+}
+
+$("btn-start").addEventListener("click", startRecording);
+$("btn-stop").addEventListener("click", stopRecording);
+$("btn-send").addEventListener("click", send);
+$("btn-retry").addEventListener("click", send);
+$("btn-mic-retry").addEventListener("click", function () { location.reload(); });
+
+// Start: check the link, then show the card.
+if (!/^[A-Za-z0-9]{3,12}$/.test(P) || !card || !/^[A-Za-z0-9]{1,4}$/.test(S)) {
+  show("s-badlink");
+} else {
+  $("band").style.background = card.colour;
+  $("card-theme").textContent = card.theme;
+  $("card-prompt").textContent = card.prompt;
+  show("s-card");
+  logEvent("opened");
+}
+</script>
+</body>
+</html>
