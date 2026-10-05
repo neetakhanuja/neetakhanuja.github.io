@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smart room signs · Neeta Khanuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="site.js"></script>
+</head>
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Neeta Khanuja</a>
+  <nav aria-label="Main"><a href="research.html">research</a><a href="design.html" aria-current="page">design</a><a href="art.html">art</a><a href="publications.html">publications</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="gap-s"></div>
+
+<section class="col">
+  <p class="crumb"><a href="design.html">design</a> · 2018</p>
+  <div style="height:20px"></div>
+  <h1>smart room signs</h1>
+  <div style="height:40px"></div>
+  <p>Room signs must carry raised numbers and braille, but there is a limit to how much they can hold. For blind and visually impaired people, the hardest part of indoor wayfinding is often the last step: confirming they have reached the right room.</p>
+  <p>We designed a low-cost smart sign. A tactile NFC tag on an existing room sign opens the room’s number, name and description on a phone, as text and audio. We then tested it with ten blind, visually impaired and sighted people.</p>
+  <p class="meta">IDeA Center, University at Buffalo · with Hemchand Subramanyam and Edward Steinfeld</p>
+</section>
+
+<div class="gap-s"></div>
+
+<figure class="fig" style="max-width:1000px">
+  <img src="img/nfc/testing.jpg" alt="Hands exploring the acrylic tag disks on a table, and fingers finding a tag on a room sign next to its raised number." loading="lazy" style="width:100%">
+</figure>
+
+<div class="gap"></div>
+
+<div class="thread-wrap" id="story">
+  <svg id="thread" aria-hidden="true"><path/></svg>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">i.</span>
+      <h3>why NFC</h3>
+      <p>Other technologies can make a sign speak, but each has a cost for a building. An NFC tag is passive, cheap and needs no power, and a phone reads it at close range.</p>
+    </div>
+    <div class="art">
+      <ul class="week wide-b">
+        <li><b>QR codes</b><span>Hard to aim a camera at and hold steady without sight.</span></li>
+        <li><b>infrared signs</b><span>Speak the sign aloud, but cost too much to install and maintain.</span></li>
+        <li><b>RFID</b><span>Read from further away, but need a powerful reader and a network.</span></li>
+        <li><b>beacons</b><span>Need batteries, and one beacon per room sign is not practical.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">ii.</span>
+      <h3>a tag you can feel</h3>
+      <p>NFC tags sit behind round acrylic disks. A UV printer raised an icon and a label on the front. We tested disk thicknesses so the tag still reads, designed three icons that suggest scanning with a phone, and made each in 1.5 and 1.75 inch sizes, with and without braille.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/nfc/tags.jpg" alt="Three tag icon designs, A, B and C, and the printed acrylic disks with raised icons." loading="lazy" style="width:100%;max-width:960px;margin-inline:auto;display:block"><figcaption class="cap-c">icon designs A, B and C, and the printed disks</figcaption></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">iii.</span>
+      <h3>the ScanSign app</h3>
+      <p>The app does two things. Scan confirms a destination: hold the phone to the tag and hear the room number, name and description. Browse lists a building’s rooms with their floor and details. Everything is shown and spoken.</p>
+    </div>
+    <figure class="art" style="margin-top:40px"><img src="img/nfc/app.jpg" alt="Four ScanSign screens: scan or browse, the building directory, a room list and a room’s details." loading="lazy" style="width:100%;max-width:960px;margin-inline:auto;display:block"></figure>
+  </article>
+
+  <article class="stop" data-stop>
+    <div class="txt">
+      <span class="num">iv.</span>
+      <h3>a usability study</h3>
+      <p>Ten people aged 18 to 55 took part at Hayes Annex, University at Buffalo, with IRB approval: four blind, one visually impaired and five sighted. Eight of the ten relied on room signs to find their way indoors.</p>
+    </div>
+    <div class="art">
+      <ul class="week wide-b">
+        <li><b>interview</b><span>How they find their way now, and with which tools.</span></li>
+        <li><b>icons</b><span>Feel each icon, say what it suggests, then again after a demonstration.</span></li>
+        <li><b>preferences</b><span>Choose an icon, a size and, for braille users, braille or not.</span></li>
+        <li><b>scan</b><span>Find the tag on a room sign and scan it, three times per tag.</span></li>
+        <li><b>browse</b><span>Find a room’s information in the app’s directory.</span></li>
+        <li><b>closing</b><span>Learning curve, concerns and what they liked.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">v.</span>
+      <h3>what we learned</h3>
+      <p>Everyone found the tag on the sign easily, and nine of ten scanned it without help.</p>
+    </div>
+    <div class="art nfc-pair" style="margin-top:40px">
+      <figure><img src="img/nfc/locate.jpg" alt="Illustration: a person finds the tag on a room sign by touch." loading="lazy"><figcaption class="cap-c">finding the tag</figcaption></figure>
+      <figure><img src="img/nfc/scan.jpg" alt="Illustration: a person holds a phone to the tag on the sign." loading="lazy"><figcaption class="cap-c">scanning it</figcaption></figure>
+    </div>
+    <ul class="findings">
+      <li><b>icons</b>Most participants, and most blind participants, chose design C for its simple form.</li>
+      <li><b>size</b>Blind and visually impaired participants chose the larger 1.75 inch tag, where raised letters were clearer. Most sighted participants chose it too, for reading from a distance.</li>
+      <li><b>braille</b>Two of the four blind participants could not read braille, and the two who could chose tags without it.</li>
+      <li><b>the gesture</b>Asked to name the action, people said scan, tap, bump and touch.</li>
+      <li><b>the app</b>Most found it useful and said they would use it regularly. One app crash showed where it needed work.</li>
+      <li><b>habits</b>Half pressed the scan button, though the tag works without it. One participant’s usual phone grip made the angle hard.</li>
+    </ul>
+    <figure class="art" style="margin-top:48px"><img src="img/nfc/gesture.jpg" alt="Gesture labels: scan 4 of 10, touch 1 of 10, tap 3 of 10, bump 2 of 10." loading="lazy" style="width:100%;max-width:640px;margin-inline:auto;display:block"></figure>
+  </article>
+
+  <article class="stop wide" data-stop>
+    <div class="txt">
+      <span class="num">vi.</span>
+      <h3>what could come next</h3>
+      <p>Beacons could load the rooms nearby. Signs could carry live information, such as meeting schedules, alerts and emergency locations, and lead people along a route inside a building. An admin portal would let building managers keep rooms up to date.</p>
+    </div>
+  </article>
+</div>
+
+<footer class="foot"><a href="design.html">design</a><a href="audio-tour.html">next: an accessible audio tour</a></footer>
+<script src="thread.js"></script>
+
+</body>
+</html>

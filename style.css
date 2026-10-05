@@ -455,3 +455,6 @@ img.box{display:block;width:100%;height:auto}
 .approach-wrap .lede{font-size:1em}
 .rs{min-height:0}
 .approach-wrap{margin-top:clamp(48px,6vw,80px);padding-top:clamp(40px,5vw,64px)}
+.nfc-pair{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;max-width:640px;margin-inline:auto;width:100%}
+.nfc-pair img{width:100%;display:block}
+.stop .findings + .findings{margin-top:28px}
