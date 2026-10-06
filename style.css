@@ -458,3 +458,11 @@ img.box{display:block;width:100%;height:auto}
 .nfc-pair{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;max-width:640px;margin-inline:auto;width:100%}
 .nfc-pair img{width:100%;display:block}
 .stop .findings + .findings{margin-top:28px}
+/* neuropottery */
+.np-two{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center;width:100%;max-width:1080px;margin-inline:auto}
+.np-two .week li{grid-template-columns:6.5em 1fr}
+.np-two .week li:first-child b{color:var(--ink);font-style:normal;font-weight:700}
+.np-pots{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:end}
+.np-pots img{width:100%;display:block}
+@media (max-width:800px){.np-two{grid-template-columns:minmax(0,1fr)}}
+.np-grid img{aspect-ratio:4/5;object-fit:cover;width:100%}
