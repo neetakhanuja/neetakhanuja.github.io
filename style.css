@@ -471,3 +471,5 @@ img.box{display:block;width:100%;height:auto}
 .np-flow li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:12px;color:var(--mute);font-style:italic}
 .np-flow li b{display:block;font-weight:700}
 .np-flow li + li::after{content:"";}
+.w-days.np-grid{align-items:start}
+.days-grid.w-days.np-grid img{aspect-ratio:4/5;object-fit:cover;object-position:50% 70%}
