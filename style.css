@@ -494,3 +494,10 @@ img.box{display:block;width:100%;height:auto}
 .ch-sub a:hover{color:var(--ink)}
 .piece{scroll-margin-top:96px}
 @media (max-width:700px){.ch-tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-inline:var(--gut);gap:20px}}
+/* lost in place */
+.lip-fig img,.lip-fig video,.lip-two img{width:100%;display:block}
+.lip-fig figcaption,.lip-two figcaption{margin-top:10px;font-size:.84em;line-height:1.45;color:var(--mute)}
+.lip-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.lip-chain{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-style:italic}
+.lip-chain li+li::before{content:"→";margin-right:14px;font-style:normal;color:var(--mute)}
+@media (max-width:800px){.lip-two{grid-template-columns:minmax(0,1fr)}}
