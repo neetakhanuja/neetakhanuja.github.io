@@ -540,3 +540,12 @@ img.box{display:block;width:100%;height:auto}
 }
 .cv-web{display:none}
 @media print{.cv-page .cv-web{display:inline}}
+/* art page: one long page with a scroll-following menu; centre narrow content */
+.art-page .ch{scroll-margin-top:72px}
+.art-page html{scroll-behavior:smooth}
+html:has(.art-page){scroll-behavior:smooth}
+.row.narrow{margin-inline:auto}
+.line-grid{margin-inline:auto}
+@media (prefers-reduced-motion:reduce){html:has(.art-page){scroll-behavior:auto}}
+.art-page .row{justify-content:center}
+.art-page .art-exh{max-width:820px}
