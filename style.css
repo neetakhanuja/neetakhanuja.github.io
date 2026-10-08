@@ -501,3 +501,40 @@ img.box{display:block;width:100%;height:auto}
 .lip-chain{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-style:italic}
 .lip-chain li+li::before{content:"→";margin-right:14px;font-style:normal;color:var(--mute)}
 @media (max-width:800px){.lip-two{grid-template-columns:minmax(0,1fr)}}
+/* cv page */
+.cv-head .cv-sub{margin-top:14px;line-height:1.45}
+.cv-head .cv-links{margin-top:12px;font-size:.92em}
+.cv-head .cv-dl{margin-top:18px;font-style:italic}
+.cv{max-width:820px}
+.cv-sec + .cv-sec{margin-top:56px}
+.cv-sec h2{text-align:left;font-size:clamp(22px,2vw,28px);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid #ddd}
+.cv-sec h3{font-size:1em;font-weight:400;font-style:italic;color:var(--mute);margin:28px 0 12px}
+.cv-sec h2 + h3{margin-top:0}
+.cv-list{list-style:none;padding:0;margin:0}
+.cv-list > li + li{margin-top:16px}
+.cv-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+.cv-y{flex:none;color:var(--mute);font-size:.9em;white-space:nowrap}
+.cv-d{margin-top:4px;font-size:.92em;line-height:1.5;color:#444}
+.cv-b{margin:6px 0 0;padding-left:1.1em}
+.cv-b li + li{margin-top:4px}
+.cv-pubs{padding-left:2.2em;margin:0}
+.cv-pubs li{font-size:.94em;line-height:1.5}
+.cv-pubs li + li{margin-top:12px}
+.cv-pubs li::marker{color:var(--mute)}
+.cv a{text-decoration-color:#bbb}
+@media (max-width:640px){.cv-row{flex-direction:column;gap:2px}}
+@media print{
+  @page{size:Letter;margin:16mm 16mm 18mm}
+  body.cv-page{padding:0;font-size:10.2pt;line-height:1.4;background:#fff}
+  .cv-page header.top,.cv-page .foot,.cv-page .cv-dl,.cv-page .gap-s{display:none}
+  .cv-page .cv-head h1{font-size:20pt;margin:0}
+  .cv-page .cv-head .cv-sub,.cv-page .cv-head .cv-links{margin-top:4pt}
+  .cv-page .cv{max-width:none;margin-top:14pt}
+  .cv-page .cv-sec + .cv-sec{margin-top:14pt}
+  .cv-page .cv-sec h2{font-size:12.5pt;margin-bottom:7pt;padding-bottom:3pt;break-after:avoid}
+  .cv-page .cv-sec h3{margin:9pt 0 5pt;break-after:avoid}
+  .cv-page .cv-list > li + li{margin-top:6pt}
+  .cv-page .cv-pubs li + li{margin-top:5pt}
+  .cv-page .cv-list > li,.cv-page .cv-pubs li{break-inside:avoid}
+  .cv-page a{color:inherit}
+}
