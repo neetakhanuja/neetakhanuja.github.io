@@ -541,7 +541,7 @@ img.box{display:block;width:100%;height:auto}
 .cv-web{display:none}
 @media print{.cv-page .cv-web{display:inline}}
 /* art page: one long page with a scroll-following menu; centre narrow content */
-.art-page .ch{scroll-margin-top:72px}
+.art-page .ch{scroll-margin-top:140px}
 .art-page html{scroll-behavior:smooth}
 html:has(.art-page){scroll-behavior:smooth}
 .row.narrow{margin-inline:auto}
@@ -549,3 +549,4 @@ html:has(.art-page){scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html:has(.art-page){scroll-behavior:auto}}
 .art-page .row{justify-content:center}
 .art-page .art-exh{max-width:820px}
+#improvisation .ch-txt{max-width:900px;width:100%;margin-inline:auto}
