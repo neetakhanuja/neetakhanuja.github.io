@@ -538,3 +538,5 @@ img.box{display:block;width:100%;height:auto}
   .cv-page .cv-list > li,.cv-page .cv-pubs li{break-inside:avoid}
   .cv-page a{color:inherit}
 }
+.cv-web{display:none}
+@media print{.cv-page .cv-web{display:inline}}
