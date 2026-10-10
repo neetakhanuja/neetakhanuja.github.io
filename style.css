@@ -535,7 +535,9 @@ img.box{display:block;width:100%;height:auto}
   .cv-page .cv-sec h3{margin:9pt 0 5pt;break-after:avoid}
   .cv-page .cv-list > li + li{margin-top:6pt}
   .cv-page .cv-pubs li + li{margin-top:5pt}
-  .cv-page .cv-list > li,.cv-page .cv-pubs li{break-inside:avoid}
+  .cv-page .cv-pubs li,.cv-page .cv-list > li:not(:has(.cv-b)){break-inside:avoid}
+  .cv-page .cv-row{break-after:avoid}
+  .cv-page .cv-b li{break-inside:avoid}
   .cv-page a{color:inherit}
 }
 .cv-web{display:none}
